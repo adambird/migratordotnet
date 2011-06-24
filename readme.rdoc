@@ -1,4 +1,4 @@
-= migratordotnet for Sqlite in memory databases
+= migratordotnet for Sqlite in-memory databases
 
 I wanted to use an in memory database for query testing and wanted to use the same migrations as the production DB.
 
