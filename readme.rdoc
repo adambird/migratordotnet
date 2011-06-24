@@ -16,7 +16,8 @@ In the TestFixtureSetup
     var migrator = new Migrator.Migrator(provider, typeof (M001CreateInvoicesTable).Assembly, true);
     migrator.MigrateToLastVersion();
  
- Now I can run my tests by passing in the connection to the appropriate classes.
+Now I can run my tests by passing in the connection to the appropriate classes.
  
+== And
  
- I'm going to try using it for a bit and then, all being well, submit a request to the owners to have this included going forward.
+I'm going to try using it for a bit and then, all being well, submit a request to the owners to have this included going forward.
