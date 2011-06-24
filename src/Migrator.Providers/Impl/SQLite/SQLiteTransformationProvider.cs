@@ -24,6 +24,13 @@ namespace Migrator.Providers.SQLite
             _connection.Open();
         }
 
+        public SQLiteTransformationProvider(Dialect dialect, IDbConnection connection, bool dontCloseConnection)
+            : base(dialect, connection.ConnectionString)
+        {
+            _connection = connection;
+            _dontCloseConnection = dontCloseConnection;
+        }
+
         public override void AddForeignKey(string name, string primaryTable, string[] primaryColumns, string refTable,
                                           string[] refColumns, ForeignKeyConstraint constraint)
         {
