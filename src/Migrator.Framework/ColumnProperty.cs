@@ -45,6 +45,10 @@ namespace Migrator.Framework
         /// <summary>
         /// Primary key. Make the column a PrimaryKey and unsigned
         /// </summary>
-        PrimaryKeyWithIdentity = PrimaryKey | Identity
+        PrimaryKeyWithIdentity = PrimaryKey | Identity,
+        /// <summary>
+        /// Non integer primary key
+        /// </summary>
+        PrimaryKeyNonInteger = 64 | NotNull
     }
 }
