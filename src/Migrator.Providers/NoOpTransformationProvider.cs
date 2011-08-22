@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using Migrator.Framework;
 using ForeignKeyConstraint=Migrator.Framework.ForeignKeyConstraint;
@@ -324,6 +325,21 @@ namespace Migrator.Providers
         }
 
         public void ExecuteSchemaBuilder(Migrator.Framework.SchemaBuilder.SchemaBuilder schemaBuilder)
+        {
+            // No Op
+        }
+
+        public void AddIndex(string name, string table, params string[] columns)
+        {
+            // No Op
+        }
+
+        public bool IndexExists(string table, string name)
+        {
+            return false;
+        }
+
+        public void RemoveIndex(string table, string name)
         {
             // No Op
         }

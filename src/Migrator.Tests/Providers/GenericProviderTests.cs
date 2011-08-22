@@ -1,3 +1,4 @@
+using System;
 using Migrator.Providers;
 using NUnit.Framework;
 
@@ -26,6 +27,11 @@ namespace Migrator.Tests.Providers
 		}
 
         public override bool ConstraintExists(string table, string name)
+        {
+            return false;
+        }
+
+        public override bool IndexExists(string table, string name)
         {
             return false;
         }
