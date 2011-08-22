@@ -45,6 +45,15 @@ namespace Migrator.Providers.PostgreSQL
                 return reader.Read();
             }
         }
+
+        public override bool IndexExists(string table, string name)
+        {
+            using (IDataReader reader =
+                ExecuteQuery(string.Format("SELECT indexname FROM pg_catalog.pg_indexes WHERE indexname = lower('{0}')", name)))
+            {
+                return reader.Read();
+            }
+        }
         
         public override bool ColumnExists(string table, string column)
         {

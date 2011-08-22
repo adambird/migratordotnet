@@ -17,8 +17,8 @@ namespace Migrator.Providers.Mysql
 			RegisterColumnType(DbType.AnsiString, 255, "VARCHAR($l)");
 			RegisterColumnType(DbType.AnsiString, 65535, "TEXT");
 			RegisterColumnType(DbType.AnsiString, 16777215, "MEDIUMTEXT");
-			RegisterColumnType(DbType.Binary, "LONGBLOB");
-			RegisterColumnType(DbType.Binary, 127, "TINYBLOB");
+			RegisterColumnType(DbType.Binary, "BINARY");
+            RegisterColumnType(DbType.Binary, 127, "BINARY($l)");
 			RegisterColumnType(DbType.Binary, 65535, "BLOB");
 			RegisterColumnType(DbType.Binary, 16777215, "MEDIUMBLOB");
 			RegisterColumnType(DbType.Boolean, "TINYINT(1)");
@@ -29,7 +29,7 @@ namespace Migrator.Providers.Mysql
 			RegisterColumnType(DbType.Decimal, "NUMERIC(19,5)");
 			RegisterColumnType(DbType.Decimal, 19, "NUMERIC(19, $l)");
 			RegisterColumnType(DbType.Double, "DOUBLE");
-			RegisterColumnType(DbType.Guid, "VARCHAR(40)");
+            RegisterColumnType(DbType.Guid, "BINARY(16)");
 			RegisterColumnType(DbType.Int16, "SMALLINT");
 			RegisterColumnType(DbType.Int32, "INTEGER");
 			RegisterColumnType(DbType.Int64, "BIGINT");

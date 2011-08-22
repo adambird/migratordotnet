@@ -109,7 +109,16 @@ namespace Migrator.Providers.SQLite
                 return reader.Read();
             }
         }
-        
+
+        public override bool IndexExists(string table, string name)
+        {
+            using (IDataReader reader =
+                ExecuteQuery(String.Format("SELECT name FROM sqlite_master WHERE type='index' and name='{0}'", name)))
+            {
+                return reader.Read();
+            }
+        }
+
         public override bool ConstraintExists(string table, string name)
         {
             return false;
@@ -234,6 +243,11 @@ namespace Migrator.Providers.SQLite
         public bool ColumnMatch(string column, string columnDef)
         {
             return columnDef.StartsWith(column + " ") || columnDef.StartsWith(_dialect.Quote(column));
+        }
+
+        public override void AddColumn(string table, string column, DbType type, int size, ColumnProperty property)
+        {
+            base.AddColumn(table, column, type, size, property);
         }
     }
 }

@@ -37,6 +37,15 @@ namespace Migrator.Providers.SqlServer
     		_connection.Open();
     	}
 
+        public override bool IndexExists(string table, string name)
+        {
+            using (IDataReader reader =
+                ExecuteQuery(string.Format("SELECT top 1 * FROM sys.indexes WHERE object_id = OBJECT_ID('{0}') AND name = '{1}'", table, name)))
+            {
+                return reader.Read();
+            }
+        }
+
         // FIXME: We should look into implementing this with INFORMATION_SCHEMA if possible
         // so that it would be usable by all the SQL Server implementations
     	public override bool ConstraintExists(string table, string name)

@@ -465,5 +465,28 @@ namespace Migrator.Framework
         IDbCommand GetCommand();
 
         void ExecuteSchemaBuilder(SchemaBuilder.SchemaBuilder schemaBuilder);
+
+        /// <summary>
+        /// Add a multi-column index to a table
+        /// </summary>
+        /// <param name="name">The name of the index to add.</param>
+        /// <param name="table">The name of the table that will get the index.</param>
+        /// <param name="columns">The name of the column or columns that are in the index.</param>
+        void AddIndex(string name, string table, params string[] columns);
+
+        /// <summary>
+        /// Check to see if an index exists
+        /// </summary>
+        /// <param name="name">The name of the index</param>
+        /// <param name="table">The table that the index lives on.</param>
+        /// <returns></returns>
+        bool IndexExists(string table, string name);
+
+        /// <summary>
+        /// Remove an existing index
+        /// </summary>
+        /// <param name="table">The table that contains the index.</param>
+        /// <param name="name">The name of the index to remove</param>
+        void RemoveIndex(string table, string name);
     }
 }
